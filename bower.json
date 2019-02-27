@@ -1,0 +1,26 @@
+{
+  "name": "next-dom-class-list",
+  "description": "Standalone dom class implement by dom classList",
+  "main": "dist/next-dom-class-list.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/next-dom-class-list",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "build",
+    "gulpfile.js"
+  ]
+}
