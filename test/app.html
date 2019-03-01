@@ -9,7 +9,7 @@
   <script src="../node_modules/next-js-core2/dist/next-js-core2.js"></script>
   <script src="../src/next-dom-class-list.js"></script>
   <style>
-    #test {
+    #el {
       padding: 20px;
       border: 1px solid seagreen;
       margin-bottom: 20px;
@@ -49,7 +49,7 @@
 </head>
 
 <body>
-  <div id="test">
+  <div id="el">
     I am the test div;
   </div>
   <button id="add">Add Class</button>
@@ -62,8 +62,8 @@
     var removeAdd = document.getElementById('remove');
     var toggleBtn = document.getElementById('toggle');
     var containsBtn = document.getElementById('contains');
-    var el = document.getElementById('test');
-    var DomClass = nx.DomClass
+    var el = document.getElementById('el');
+    var DomClass = nx.DomClassList
 
     btnAdd.onclick = function () {
       DomClass.add(el,'c-border c-red c-green');

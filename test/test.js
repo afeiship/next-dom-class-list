@@ -1,21 +1,40 @@
 (function() {
   var nx = require('next-js-core2');
-  var NxDomClassList = require('../src/next-dom-class-list');
-  var html = require('fs').readFileSync('./test/app.html').toString();
+  var DomClass = require('../src/next-dom-class-list');
+  var html = require('fs')
+    .readFileSync('./test/app.html')
+    .toString();
+  var el;
+  // init document:
+  beforeEach(function() {
+    document.documentElement.innerHTML = html;
+    el = document.getElementById('el');
+  });
 
+  // 'add,remove,replace,toggle,contains'
+  describe('DomClass.methods - Add', function() {
+    test('add single class -> `a`', function() {
+      expect(el.className).toBe('');
+      DomClass.add(el, 'a');
+      expect(el.className).toBe('a');
+    });
 
-  document.documentElement.innerHTML = html;
-  var btnAdd = document.getElementById('add');
-  var removeAdd = document.getElementById('remove');
-  var toggleBtn = document.getElementById('toggle');
-  var containsBtn = document.getElementById('contains');
+    test('add muliple class ->`a abc d`', function() {
+      expect(el.className).toBe('');
+      DomClass.add(el, 'a abc d');
+      expect(el.className).toBe('a abc d');
+    });
 
+    test('add muliple class with arguments ->`a,bc,d`', function() {
+      expect(el.className).toBe('');
+      DomClass.add(el, 'a', 'bc', 'd');
+      expect(el.className).toBe('a bc d');
+    });
 
-  describe('NxDomClassList.methods', function() {
-    test('init', function() {
-      console.log(
-        btnAdd
-      );
+    test('add muliple class with arguments and duplicate ->`a,bc,d,a`', function() {
+      expect(el.className).toBe('');
+      DomClass.add(el, 'a', 'bc', 'd', 'a');
+      expect(el.className).toBe('a bc d');
     });
   });
 })();

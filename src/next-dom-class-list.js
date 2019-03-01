@@ -13,12 +13,9 @@
         };
       },
       __class__: function(inAction, inArgs) {
-        var cssClass = inArgs;
         var context = inArgs[0].classList;
         var args = nx.slice(inArgs).slice(1);
-        if (args.length === 1) {
-          cssClass = args[0].split(BLANK);
-        }
+        var cssClass = args.length === 1 ? args[0].split(BLANK) : args;
         return context[inAction].apply(context, cssClass);
       }
     }
